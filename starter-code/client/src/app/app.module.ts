@@ -8,16 +8,19 @@ import { EntryListComponent } from './entry-list/entry-list.component';
 import { Routes } from '@angular/router';
 import { RouterModule } from "@angular/router";
 import { RetrieverService } from './retriever.service';
+import { JournalDetailsComponent } from './journal-details/journal-details.component';
 
 export const routes: Routes = [
     { path: '', component: EntryListComponent },
+    { path: 'journal-entries/:id', component: JournalDetailsComponent },
     { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntryListComponent
+    EntryListComponent,
+    JournalDetailsComponent
   ],
   imports: [
     BrowserModule,

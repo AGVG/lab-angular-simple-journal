@@ -8,7 +8,12 @@ export class RetrieverService {
   constructor(private http: Http) {}
 
   getList() {
-    return this.http.get(`${this.BASE_URL}/journal-entries`)
+    return this.http.get(`${this.BASE_URL}`)
+      .map((res) => res.json());
+  }
+
+  get(id) {
+    return this.http.get(`${this.BASE_URL}/journal-entries/${id}`)
       .map((res) => res.json());
   }
 }

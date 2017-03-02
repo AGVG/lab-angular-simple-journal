@@ -25,7 +25,7 @@ var EntryListComponent = (function () {
 EntryListComponent = __decorate([
     Component({
         selector: 'app-entry-list',
-        template: "\n  <h1> Phone list </h1>\n  <div>\n    <div *ngFor=\"let entry of entries\">\n      <h3> {{ entry.title }} </h3>\n      <p> {{ entry.content }} </p>\n    </div>\n  </div>\n",
+        template: "\n  <h1> Journal Entries </h1>\n  <div>\n    <div *ngFor=\"let entry of entries\">\n      <h3> {{ entry.title }} </h3>\n      <p> {{ entry.date }} </p>\n      <p> {{ entry.content }} </p>\n      <p> {{entry._id}} </p>\n      <a [routerLink]=\"['journal-entries', entry._id]\"> View Details </a>\n    </div>\n  </div>\n",
         styleUrls: ['./entry-list.component.css']
     }),
     __metadata("design:paramtypes", [RetrieverService])
