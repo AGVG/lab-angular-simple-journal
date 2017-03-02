@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 const mongoose     = require('mongoose');
+const journalRoute = require('./routes/api/journal-entries');
+const index = require('./routes/index');
 
 mongoose.connect('mongodb://localhost/journal-development');
 
@@ -27,8 +29,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
-const index = require('./routes/index');
 app.use('/', index);
+app.use('/api/journal-entries', journalRoute);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
